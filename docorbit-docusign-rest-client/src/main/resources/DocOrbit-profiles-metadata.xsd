@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="source">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string" />
+				<xs:element name="version" type="xs:string" />
+				<xs:element name="accountId" type="xs:string" />
+				<xs:element name="permissionProfiles">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded"
+								name="permissionProfile">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="permissionProfileId"
+											type="xs:unsignedInt" />
+										<xs:element name="permissionProfileName"
+											type="xs:string" />
+										<xs:element name="modifiedDateTime"
+											type="xs:dateTime" />
+										<xs:element name="modifiedByUsername" />
+										<xs:element name="settings">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element
+														name="useNewDocuSignExperienceInterface" type="xs:string" />
+													<xs:element name="allowBulkSending"
+														type="xs:boolean" />
+													<xs:element name="allowEnvelopeSending"
+														type="xs:boolean" />
+													<xs:element name="allowSignerAttachments"
+														type="xs:boolean" />
+													<xs:element name="allowTaggingInSendAndCorrect"
+														type="xs:boolean" />
+													<xs:element name="allowWetSigningOverride"
+														type="xs:boolean" />
+													<xs:element name="allowedAddressBookAccess"
+														type="xs:string" />
+													<xs:element name="allowedTemplateAccess"
+														type="xs:string" />
+													<xs:element
+														name="enableRecipientViewingNotifications"
+														type="xs:boolean" />
+													<xs:element
+														name="enableSequentialSigningInterface" type="xs:boolean" />
+													<xs:element
+														name="receiveCompletedSelfSignedDocumentsAsEmailLinks"
+														type="xs:boolean" />
+													<xs:element name="signingUiVersion"
+														type="xs:string" />
+													<xs:element name="useNewSendingInterface"
+														type="xs:boolean" />
+													<xs:element name="allowApiAccess"
+														type="xs:boolean" />
+													<xs:element name="allowApiAccessToAccount"
+														type="xs:boolean" />
+													<xs:element
+														name="allowApiSendingOnBehalfOfOthers" type="xs:boolean" />
+													<xs:element name="allowApiSequentialSigning"
+														type="xs:boolean" />
+													<xs:element name="enableApiRequestLogging"
+														type="xs:boolean" />
+													<xs:element name="allowDocuSignDesktopClient"
+														type="xs:boolean" />
+													<xs:element
+														name="allowSendersToSetRecipientEmailLanguage"
+														type="xs:boolean" />
+													<xs:element name="allowVaulting"
+														type="xs:boolean" />
+													<xs:element
+														name="enableTransactionPointIntegration" type="xs:boolean" />
+													<xs:element name="vaultingMode" type="xs:string" />
+													<xs:element name="powerFormRole"
+														type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

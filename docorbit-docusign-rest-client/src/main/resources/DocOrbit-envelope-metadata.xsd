@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+    <!-- ROOT -->
+    <xs:element name="source">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="version" type="xs:string"/>
+                <xs:element name="accountId" type="xs:string"/>
+                <xs:element name="envelops">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="envelop" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+
+                                        <xs:element name="Name" type="xs:string"/>
+                                        <xs:element name="status" type="xs:string"/>
+                                        <xs:element name="envelopeId" type="xs:string"/>
+
+                                        <xs:element name="envelopeUri" type="xs:string" minOccurs="0"/>
+
+                                        <xs:element name="createdDateTime" type="xs:string"/>
+                                        <xs:element name="lastModifiedDateTime" type="xs:string"/>
+
+                                        <xs:element name="sentDateTime" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="completedDateTime" type="xs:string" minOccurs="0"/>
+
+                                        <!-- SENDER -->
+                                        <xs:element name="sender" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="senderName" type="xs:string"/>
+                                                    <xs:element name="senderUserId" type="xs:string"/>
+                                                    <xs:element name="senderAccountId" type="xs:string"/>
+                                                    <xs:element name="senderEmail" type="xs:string"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+
+                                        <!-- DOCUMENTS -->
+                                        <xs:element name="documents" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="document" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="documentId" type="xs:string"/>
+                                                                <xs:element name="documentIdGuid" type="xs:string"/>
+                                                                <xs:element name="documentName" type="xs:string"/>
+                                                                <xs:element name="documentType" type="xs:string"/>
+                                                                <xs:element name="documentUri" type="xs:string"/>
+                                                                <xs:element name="order" type="xs:int" minOccurs="0"/>
+
+                                                                <!-- PAGES -->
+                                                                <xs:element name="pages" minOccurs="0">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="page" maxOccurs="unbounded">
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element name="pageId" type="xs:string"/>
+                                                                                        <xs:element name="sequence" type="xs:int"/>
+                                                                                        <xs:element name="height" type="xs:int"/>
+                                                                                        <xs:element name="width" type="xs:int"/>
+                                                                                        <xs:element name="dpi" type="xs:int"/>
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="setupParentAnchorPane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.techtiera.docorbit.controller.MainController">
+	<children>
+		<BorderPane prefHeight="627.0" prefWidth="1079.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<left>
+				<AnchorPane style="-fx-background-color: #0c74b1;" BorderPane.alignment="CENTER">
+					<children>
+						<VBox layoutY="14.0">
+							<children>
+								<Button fx:id="sourceButton" alignment="TOP_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#sourceButtonAction" prefHeight="42.0" prefWidth="230.0" stylesheets="@../css/styles.css" text="Source" textFill="#f1f1f1" wrapText="true">
+									<font>
+										<Font name="Poppins" size="18.0" />
+									</font>
+									<VBox.margin>
+										<Insets />
+									</VBox.margin>
+									<graphic>
+										<ImageView fx:id="sourceImage" fitHeight="25.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../images/Source-white.png" />
+											</image>
+										</ImageView>
+									</graphic>
+									<opaqueInsets>
+										<Insets />
+									</opaqueInsets>
+									<padding>
+										<Insets left="30.0" top="6.0" />
+									</padding>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" height="5.0" radius="2.0" width="5.0" />
+                           </effect>
+								</Button>
+                        <Button fx:id="reportsButton" alignment="TOP_LEFT" disable="true" graphicTextGap="20.0" mnemonicParsing="false" onAction="#reportsButtonAction" prefHeight="42.0" prefWidth="230.0" stylesheets="@../css/styles.css" text="Reports" textFill="#f1f1f1">
+                           <font>
+                              <Font name="Poppins" size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fx:id="reportsImage" fitHeight="25.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/reports-white.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="27.0" top="6.0" />
+                           </padding>
+                        </Button>
+							</children>
+						</VBox>
+						<AnchorPane layoutX="15.0" layoutY="353.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0">
+							<children>
+								<Label layoutX="53.0" layoutY="133.0" prefHeight="21.0" prefWidth="86.0" text="Copyright ©" textFill="WHITE" AnchorPane.bottomAnchor="50.0">
+									<font>
+										<Font name="Poppins" size="14.0" />
+									</font>
+								</Label>
+								<Label layoutX="24.0" layoutY="154.0" prefHeight="18.0" prefWidth="152.0" text="TechTiera Corporation" textFill="WHITE" AnchorPane.bottomAnchor="25.0">
+									<font>
+										<Font name="Poppins Bold" size="14.0" />
+									</font>
+									<padding>
+										<Insets bottom="5.0" />
+									</padding>
+								</Label>
+							</children>
+						</AnchorPane>
+					</children>
+				</AnchorPane>
+			</left>
+			<top>
+				<AnchorPane prefHeight="60.0" prefWidth="1080.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+					<children>
+						<ImageView fitHeight="79.0" fitWidth="325.0" layoutX="36.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+							<image>
+								<Image url="@../images/importer_new_logo.png" />
+							</image>
+						</ImageView>
+						<MenuButton fx:id="closeButton" layoutX="1002.0" layoutY="16.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="36.0" style="-fx-background-color: #ffffff;" textFill="WHITE" AnchorPane.rightAnchor="14.0">
+							<items>
+								<MenuItem mnemonicParsing="false">
+									<graphic>
+										<Label fx:id="loginUserName" text="UserName" />
+									</graphic>
+								</MenuItem>
+								<MenuItem mnemonicParsing="false" onAction="#closeButtonAction">
+									<graphic>
+										<Label text="Logout" />
+									</graphic>
+								</MenuItem>
+							</items>
+							<graphic>
+								<ImageView fitHeight="28.0" fitWidth="35.0" onMouseClicked="#closeButtonAction" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@../images/logout.png" />
+									</image>
+								</ImageView>
+							</graphic>
+						</MenuButton>
+						<Pane layoutX="1049.0" layoutY="19.0" prefHeight="30.0" prefWidth="25.0" style="-fx-background-color: #ffffff;" AnchorPane.rightAnchor="5.0" />
+                  <Label fx:id="versionId" layoutX="373.0" layoutY="30.0" prefHeight="18.0" prefWidth="70.0" textFill="#0c74b1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+					</children>
+				</AnchorPane>
+			</top>
+			<center>
+				<AnchorPane fx:id="setupAnchorPane" prefHeight="550.0" prefWidth="870.0" BorderPane.alignment="CENTER">
+					<children>
+						<TabPane fx:id="setupTabPane" prefHeight="550.0" prefWidth="870.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+							<tabs>
+								<Tab text="Set up" />
+							</tabs>
+						</TabPane>
+					</children>
+				</AnchorPane>
+			</center>
+		</BorderPane>
+	</children>
+</AnchorPane>

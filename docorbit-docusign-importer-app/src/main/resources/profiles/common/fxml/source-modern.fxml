@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane fx:id="setupTabPane" minHeight="400.0" minWidth="600.0" prefHeight="545.0" prefWidth="846.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.techtiera.docorbit.controller.SourceController">
+	<tabs>
+
+		<!-- ===== USERS TAB ===== -->
+		<Tab text="Users">
+			<content>
+				<AnchorPane style="-fx-background-color: #F0F2F5;">
+
+					<!-- Main Card -->
+					<VBox id="mainCard" spacing="0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="24.0">
+
+						<!-- Header -->
+						<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT; -fx-padding: 18 22 12 22;">
+							<Label style="-fx-font-size: 22px; -fx-text-fill: #4695c4; -fx-background-color: #EEF2FF; -fx-background-radius: 10; -fx-padding: 6 10 6 10;" text="👥" />
+							<VBox spacing="2.0">
+								<Label id="titleLabel" text="Users Import Configuration" />
+								<Label id="subtitleLabel" text="Import user data from XML files" />
+							</VBox>
+						</HBox>
+
+						<!-- Divider -->
+						<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+						<!-- Body -->
+						<VBox spacing="16.0" style="-fx-padding: 22 28 18 28;" VBox.vgrow="ALWAYS">
+
+							<!-- File Selection Section -->
+							<VBox spacing="8.0">
+								<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT;">
+									<Label style="-fx-font-size:14px;" text="📁" />
+									<Label id="sectionLabel" text="Select User XML File" />
+								</HBox>
+
+								<HBox spacing="10.0" style="-fx-alignment: CENTER_LEFT;">
+									<Label id="pathField" fx:id="labelUserLocation" maxWidth="1.7976931348623157E308" text="Path : " textFill="#374151" wrapText="false" HBox.hgrow="ALWAYS">
+										<font>
+											<Font name="Segoe UI" size="13.0" />
+										</font>
+									</Label>
+									<Button fx:id="btnUserFile" minWidth="100.0" onAction="#browseUserFile" text="Browse" />
+								</HBox>
+							</VBox>
+
+							<!-- Divider -->
+							<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+							<!-- Actions Section -->
+							<VBox spacing="10.0">
+								<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT;">
+									<Label style="-fx-font-size:14px;" text="⚙" />
+									<Label id="sectionLabel" text="Data Processing" />
+								</HBox>
+
+								<HBox spacing="12.0" style="-fx-alignment: CENTER_LEFT;">
+									<Button id="actionBtn" minWidth="110.0" onAction="#validateUserXMLData" text="Validate XML" />
+									<Button id="actionBtn" minWidth="100.0" onAction="#readUserXMLData" text="Get Data" />
+      
+      							<!-- Records Count -->
+      							<Label id="recordsCountLabel" fx:id="totalUserRecordsCount" text="Total Records : -" visible="false">
+      								<font>
+      									<Font name="Segoe UI Semibold" size="13.0" />
+      								</font>
+      							</Label>
+								</HBox>
+							</VBox>
+
+							<!-- Table -->
+							<TableView id="reportTableView" fx:id="userRecordTableView" maxHeight="1.7976931348623157E308" visible="false" VBox.vgrow="ALWAYS">
+								<effect>
+									<DropShadow color="#00000012" offsetY="2" radius="10" />
+								</effect>
+							</TableView>
+
+						</VBox>
+
+						<!-- Divider -->
+						<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+						<!-- Footer -->
+						<HBox spacing="12.0" style="-fx-alignment: CENTER; -fx-padding: 16 28 20 28;">
+							<Button fx:id="importUserButton" disable="true" onAction="#importUserButtonAction" text="Import" />
+						</HBox>
+
+					</VBox>
+				</AnchorPane>
+			</content>
+		</Tab>
+
+		<!-- ===== TEMPLATES TAB ===== -->
+		<Tab text="Templates">
+			<content>
+				<AnchorPane style="-fx-background-color: #F0F2F5;">
+
+					<VBox id="mainCard" spacing="0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="24.0">
+
+						<!-- Header -->
+						<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT; -fx-padding: 18 22 12 22;">
+							<Label style="-fx-font-size: 22px; -fx-text-fill: #4695c4; -fx-background-color: #EEF2FF; -fx-background-radius: 10; -fx-padding: 6 10 6 10;" text="📄" />
+							<VBox spacing="2.0">
+								<Label id="titleLabel" text="Templates Import Configuration" />
+								<Label id="subtitleLabel" text="Import template data and content files" />
+							</VBox>
+						</HBox>
+
+						<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+						<!-- Scrollable Body -->
+						<ScrollPane id="bodyScrollPane" fitToWidth="true" VBox.vgrow="ALWAYS">
+							<VBox spacing="12.0" style="-fx-padding: 18 28 14 28;">
+
+								<!-- Content Path Section -->
+								<VBox spacing="6.0">
+									<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT;">
+										<Label style="-fx-font-size:14px;" text="📂" />
+										<Label id="sectionLabel" text="Template Content Path" />
+									</HBox>
+									<HBox spacing="10.0" style="-fx-alignment: CENTER_LEFT;">
+										<Label id="pathField" fx:id="labelTemplateContentLocation" maxWidth="1.7976931348623157E308" text="Path : " HBox.hgrow="ALWAYS">
+											<font>
+												<Font name="Segoe UI" size="13.0" />
+											</font>
+										</Label>
+										<Button fx:id="btnTemplateContentFile" minWidth="100.0" onAction="#browseTemplateContentFile" text="Browse" />
+									</HBox>
+								</VBox>
+
+								<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+								<!-- XML File Section -->
+								<VBox spacing="6.0">
+									<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT;">
+										<Label style="-fx-font-size:14px;" text="📁" />
+										<Label id="sectionLabel" text="Template XML File" />
+									</HBox>
+									<HBox spacing="10.0" style="-fx-alignment: CENTER_LEFT;">
+										<Label id="pathField" fx:id="labelTemplateLocation" maxWidth="1.7976931348623157E308" text="Path : " HBox.hgrow="ALWAYS">
+											<font>
+												<Font name="Segoe UI" size="13.0" />
+											</font>
+										</Label>
+										<Button fx:id="btnTemplateFile" minWidth="100.0" onAction="#browseTemplateFile" text="Browse" />
+									</HBox>
+								</VBox>
+
+								<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+								<!-- Report Path Section -->
+								<VBox spacing="6.0">
+									<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT;">
+										<Label style="-fx-font-size:14px;" text="📊" />
+										<Label id="sectionLabel" text="Template Report Path" />
+									</HBox>
+									<HBox spacing="10.0" style="-fx-alignment: CENTER_LEFT;">
+										<Label id="pathField" fx:id="labelTemplateReportLocation" maxWidth="1.7976931348623157E308" text="Path : " HBox.hgrow="ALWAYS">
+											<font>
+												<Font name="Segoe UI" size="13.0" />
+											</font>
+										</Label>
+										<Button fx:id="templateReportButton" minWidth="100.0" onAction="#browseTemplateReportPath" text="Browse" />
+									</HBox>
+								</VBox>
+
+								<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+								<!-- Actions -->
+								<VBox spacing="8.0">
+									<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT;">
+										<Label style="-fx-font-size:14px;" text="⚙" />
+										<Label id="sectionLabel" text="Data Processing" />
+									</HBox>
+									<HBox spacing="12.0" style="-fx-alignment: CENTER_LEFT;">
+										<Button id="actionBtn" minWidth="110.0" onAction="#validateTemplateXMLData" text="Validate XML" />
+										<Button id="actionBtn" minWidth="100.0" onAction="#readTemplateXMLData" text="Get Data" />
+      
+      								<Label id="recordsCountLabel" fx:id="totalTemplateRecordsCount" text="Total Records : -" visible="false">
+      									<font>
+      										<Font name="Segoe UI Semibold" size="13.0" />
+      									</font>
+      								</Label>
+									</HBox>
+								</VBox>
+
+								<TableView id="reportTableView" fx:id="templateRecordTableView" minHeight="250.0" prefHeight="300.0" visible="false">
+									<effect>
+										<DropShadow color="#00000012" offsetY="2" radius="10" />
+									</effect>
+								</TableView>
+
+							</VBox>
+						</ScrollPane>
+
+						<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+						<HBox spacing="12.0" style="-fx-alignment: CENTER; -fx-padding: 16 28 20 28;">
+							<Button fx:id="importTemplateButton" disable="true" onAction="#importButtonAction" text="Import" />
+						</HBox>
+
+					</VBox>
+				</AnchorPane>
+			</content>
+		</Tab>
+
+		<!-- ===== ENVELOPS TAB ===== -->
+		<Tab text="Envelops">
+			<content>
+				<AnchorPane style="-fx-background-color: #F0F2F5;">
+
+					<VBox id="mainCard" spacing="0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="24.0">
+
+						<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT; -fx-padding: 18 22 12 22;">
+							<Label style="-fx-font-size: 22px; -fx-text-fill: #059669; -fx-background-color: #ECFDF5; -fx-background-radius: 10; -fx-padding: 6 10 6 10;" text="✉" />
+							<VBox spacing="2.0">
+								<Label id="titleLabel" text="Envelopes Import Configuration" />
+								<Label id="subtitleLabel" text="Import envelope packaging data" />
+							</VBox>
+						</HBox>
+
+						<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+						<!-- Scrollable Body -->
+						<ScrollPane id="bodyScrollPane" fitToWidth="true" VBox.vgrow="ALWAYS">
+							<VBox spacing="12.0" style="-fx-padding: 18 28 14 28;">
+
+								<!-- Content Path -->
+								<VBox spacing="6.0">
+									<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT;">
+										<Label style="-fx-font-size:14px;" text="📂" />
+										<Label id="sectionLabel" text="Envelope Content Path" />
+									</HBox>
+									<HBox spacing="10.0" style="-fx-alignment: CENTER_LEFT;">
+										<Label id="pathField" fx:id="labelEnvelopContentLocation" maxWidth="1.7976931348623157E308" text="Path : " HBox.hgrow="ALWAYS">
+											<font>
+												<Font name="Segoe UI" size="13.0" />
+											</font>
+										</Label>
+										<Button fx:id="btnEnvelopContentFile" minWidth="100.0" onAction="#browseEnvelopContentFile" text="Browse" />
+									</HBox>
+								</VBox>
+
+								<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+								<!-- XML File -->
+								<VBox spacing="6.0">
+									<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT;">
+										<Label style="-fx-font-size:14px;" text="📁" />
+										<Label id="sectionLabel" text="Envelope XML File" />
+									</HBox>
+									<HBox spacing="10.0" style="-fx-alignment: CENTER_LEFT;">
+										<Label id="pathField" fx:id="labelEnvelopeLocation" maxWidth="1.7976931348623157E308" text="Path : " HBox.hgrow="ALWAYS">
+											<font>
+												<Font name="Segoe UI" size="13.0" />
+											</font>
+										</Label>
+										<Button fx:id="btnEnvelopeFile" minWidth="100.0" onAction="#browseEnvelopeFile" text="Browse" />
+									</HBox>
+								</VBox>
+
+								<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+								<!-- Report Path -->
+								<VBox spacing="6.0">
+									<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT;">
+										<Label style="-fx-font-size:14px;" text="📊" />
+										<Label id="sectionLabel" text="Envelope Report Path" />
+									</HBox>
+									<HBox spacing="10.0" style="-fx-alignment: CENTER_LEFT;">
+										<Label id="pathField" fx:id="labelEnvelopeReportLocation" maxWidth="1.7976931348623157E308" text="Path : " HBox.hgrow="ALWAYS">
+											<font>
+												<Font name="Segoe UI" size="13.0" />
+											</font>
+										</Label>
+										<Button fx:id="envelopeReportButton" minWidth="100.0" onAction="#browseEnvelopeReportPath" text="Browse" />
+									</HBox>
+								</VBox>
+
+								<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+								<!-- Actions -->
+								<VBox spacing="8.0">
+									<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT;">
+										<Label style="-fx-font-size:14px;" text="⚙" />
+										<Label id="sectionLabel" text="Data Processing" />
+									</HBox>
+									<HBox spacing="12.0" style="-fx-alignment: CENTER_LEFT;">
+										<Button id="actionBtn" minWidth="110.0" onAction="#validateEnvelopeXMLData" text="Validate XML" />
+										<Button id="actionBtn" minWidth="100.0" onAction="#readEnvelopeXMLData" text="Get Data" />
+      
+      								<Label id="recordsCountLabel" fx:id="totalEnvelopeRecordsCount" text="Total Records : -" visible="false">
+      									<font>
+      										<Font name="Segoe UI Semibold" size="13.0" />
+      									</font>
+      								</Label>
+									</HBox>
+								</VBox>
+
+								<TableView id="reportTableView" fx:id="envelopeRecordTableView" minHeight="250.0" prefHeight="300.0" visible="false">
+									<effect>
+										<DropShadow color="#00000012" offsetY="2" radius="10" />
+									</effect>
+								</TableView>
+
+							</VBox>
+						</ScrollPane>
+
+						<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+						<HBox spacing="12.0" style="-fx-alignment: CENTER; -fx-padding: 16 28 20 28;">
+							<Button fx:id="importEnvelopeButton" disable="true" onAction="#importEnvelopButtonAction" text="Import" />
+						</HBox>
+
+					</VBox>
+				</AnchorPane>
+			</content>
+		</Tab>
+
+		<!-- ===== GROUPS TAB ===== -->
+		<Tab text="Groups">
+			<content>
+				<AnchorPane style="-fx-background-color: #F0F2F5;">
+
+					<VBox id="mainCard" spacing="0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="24.0">
+
+						<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT; -fx-padding: 18 22 12 22;">
+							<Label style="-fx-font-size: 22px; -fx-text-fill: #7C3AED; -fx-background-color: #F3E8FF; -fx-background-radius: 10; -fx-padding: 6 10 6 10;" text="👥" />
+							<VBox spacing="2.0">
+								<Label id="titleLabel" text="Groups Import Configuration" />
+								<Label id="subtitleLabel" text="Import security group data from XML" />
+							</VBox>
+						</HBox>
+
+						<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+						<VBox spacing="16.0" style="-fx-padding: 22 28 18 28;" VBox.vgrow="ALWAYS">
+
+							<VBox spacing="8.0">
+								<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT;">
+									<Label style="-fx-font-size:14px;" text="📁" />
+									<Label id="sectionLabel" text="Select Group XML File" />
+								</HBox>
+								<HBox spacing="10.0" style="-fx-alignment: CENTER_LEFT;">
+									<Label id="pathField" fx:id="labelGroupLocation" maxWidth="1.7976931348623157E308" text="Path : " HBox.hgrow="ALWAYS">
+										<font>
+											<Font name="Segoe UI" size="13.0" />
+										</font>
+									</Label>
+									<Button fx:id="btnGroupFile" minWidth="100.0" onAction="#browseGroupFile" text="Browse" />
+								</HBox>
+							</VBox>
+
+							<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+							<VBox spacing="10.0">
+								<HBox spacing="8.0" style="-fx-alignment: CENTER_LEFT;">
+									<Label style="-fx-font-size:14px;" text="⚙" />
+									<Label id="sectionLabel" text="Data Processing" />
+								</HBox>
+								<HBox spacing="12.0" style="-fx-alignment: CENTER_LEFT;">
+									<Button id="actionBtn" minWidth="110.0" onAction="#validateGroupXMLData" text="Validate XML" />
+									<Button id="actionBtn" minWidth="100.0" onAction="#readGroupXMLData" text="Get Data" />
+      
+      							<Label id="recordsCountLabel" fx:id="totalGroupRecordsCount" text="Total Records : -" visible="false">
+      								<font>
+      									<Font name="Segoe UI Semibold" size="13.0" />
+      								</font>
+      							</Label>
+								</HBox>
+							</VBox>
+
+							<TableView id="reportTableView" fx:id="groupRecordTableView" maxHeight="1.7976931348623157E308" visible="false" VBox.vgrow="ALWAYS">
+								<effect>
+									<DropShadow color="#00000012" offsetY="2" radius="10" />
+								</effect>
+							</TableView>
+
+						</VBox>
+
+						<Region maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #E5E7EB;" />
+
+						<HBox spacing="12.0" style="-fx-alignment: CENTER; -fx-padding: 16 28 20 28;">
+							<Button fx:id="groupImportButton" disable="true" onAction="#importGroupButtonAction" text="Import" />
+						</HBox>
+
+					</VBox>
+				</AnchorPane>
+			</content>
+		</Tab>
+
+		<!-- ===== LOG TAB ===== -->
+		<Tab fx:id="Logtab" text="Log">
+			<content>
+				<AnchorPane fx:id="logAnchorPane" style="-fx-background-color: #F0F2F5;">
+					<children>
+						<StackPane fx:id="stackPaneForTextArea" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="24.0" />
+						<TextArea fx:id="logTextArea" wrapText="true" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="24.0">
+							<effect>
+								<DropShadow color="#00000020" offsetY="4" radius="16" />
+							</effect>
+							<font>
+								<Font size="14.0" />
+							</font>
+						</TextArea>
+					</children>
+				</AnchorPane>
+			</content>
+		</Tab>
+
+	</tabs>
+	<stylesheets>
+		<URL value="@setup-modern.css" />
+		<URL value="@../css/setup-modern.css" />
+	</stylesheets>
+</TabPane>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="source">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string" />
+				<xs:element name="version" type="xs:string" />
+				<xs:element name="records">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="record" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="name" type="xs:string" />
+										<xs:element name="extension" type="xs:string" />
+										<xs:element name="author" type="xs:string" />
+										<xs:element name="contentUrl" type="xs:string" />
+										<xs:element name="exportLocation" type="xs:string" />
+										<xs:element name="documentType" type="xs:string" />
+										<xs:element name="associationId" type="xs:string"
+											minOccurs="0" />
+										<xs:element name="isFileAnnotated" type="xs:string"
+											minOccurs="0" />
+										<xs:element name="properties">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="property"
+														maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute name="name" type="xs:string"
+																		use="required" />
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="versions" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="version" maxOccurs="unbounded"
+														minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="documentName"
+																	type="xs:string" />
+																<xs:element name="documentFormat"
+																	type="xs:string" />
+																<xs:element name="number" type="xs:string" />
+																<xs:element name="contentUrl"
+																	type="xs:string" />
+																<xs:element name="renditions" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="rendition"
+																				maxOccurs="unbounded" minOccurs="0">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="name"
+																							type="xs:string" />
+																						<xs:element name="format"
+																							type="xs:string" />
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

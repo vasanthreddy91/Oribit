@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="source">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string" />
+				<xs:element name="version" type="xs:string" />
+				<xs:element name="accountId" type="xs:string" />
+				<xs:element name="groups">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="group">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="groupId" type="xs:unsignedInt" />
+										<xs:element name="groupName" type="xs:string" />
+										<xs:element name="groupType" type="xs:string" />
+										<xs:element name="permissionProfileId"
+											type="xs:string" />
+										<xs:element name="usersCount" type="xs:string" />
+										<xs:element name="lastModifiedOn" type="xs:string" />
+										<xs:element name="isManagedByScim" type="xs:string" />
+										<xs:element minOccurs="0" name="users">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="user">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="userName" type="xs:string" />
+																<xs:element name="userId" type="xs:string" />
+																<xs:element name="email" type="xs:string" />
+																<xs:element name="userType" type="xs:string" />
+																<xs:element name="userStatus"
+																	type="xs:string" />
+																<xs:element name="uri" type="xs:string" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

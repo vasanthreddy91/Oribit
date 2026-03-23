@@ -1,0 +1,526 @@
+/* ===== DocOrbit Modern Theme - Setup & Reports ===== */
+
+.root {
+    -fx-background-color: #F0F2F5;
+    -fx-font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+/* ===== TAB PANE ===== */
+.tab-pane {
+    -fx-background-color: #F0F2F5;
+    -fx-tab-min-width: 90.0px;
+    -fx-tab-max-width: 200.0px;
+}
+
+/* Content area fills all remaining space below the tab bar */
+.tab-pane > .tab-content-area {
+    -fx-background-color: #F0F2F5;
+    -fx-padding: 0.0;
+    -fx-border-color: #E5E7EB;
+    -fx-border-width: 1.0 0.0 0.0 0.0;
+}
+
+/* Tab header strip background */
+.tab-pane .tab-header-area {
+    -fx-background-color: #E9EEF3;
+    -fx-padding: 6.0px 8.0px 4.0px 8.0px;
+    -fx-border-color: #4695c4;
+    -fx-border-width: 0.0 0.0 1.5px 0.0;
+    -fx-effect: none;
+}
+
+.tab-pane .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+/* Focus ring removal */
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+
+/* ── Individual tab pill ── */
+.tab-pane > .tab-header-area > .headers-region > .tab {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8.0px 8.0px 0.0 0.0;
+    -fx-background-insets: 0.0;
+    -fx-padding: 6.0px 22.0px 6.0px 22.0px;
+    -fx-cursor: hand;
+}
+
+/* Unselected hover */
+.tab-pane > .tab-header-area > .headers-region > .tab:hover {
+    -fx-background-color: #D2D7E3;
+}
+
+/* Selected tab — white card rising into the content area */
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8.0px 8.0px 0.0 0.0;
+    -fx-border-color: #0c74b1 transparent transparent transparent;
+    -fx-border-width: 2.5px 0.0 0.0 0.0;
+    -fx-border-radius: 8.0px 8.0px 0.0 0.0;
+    -fx-effect: dropshadow(gaussian, rgba(0.0,0.0,0.0,0.07), 6.0, 0.0, 0.0, -2.0);
+}
+
+/* ── Tab label text ── */
+.tab-pane > .tab-header-area > .headers-region > .tab .tab-label {
+    -fx-text-fill: #6B7280;
+    -fx-font-size: 13.0px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 0.3px;
+}
+
+/* Selected tab label */
+.tab-pane > .tab-header-area > .headers-region > .tab:selected .tab-label {
+    -fx-text-fill: #0c74b1;
+    -fx-font-weight: bold;
+    -fx-font-size: 13.0px;
+}
+
+/* ===== MAIN CARD ===== */
+#mainCard {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 16.0px;
+    -fx-effect: dropshadow(gaussian, rgba(0.0,0.0,0.0,0.09), 24.0, 0.0, 0.0, 4.0);
+}
+
+/* ===== HEADER LABELS ===== */
+#titleLabel {
+    -fx-font-size: 20.0px;
+    -fx-font-weight: 700.0;
+    -fx-text-fill: #111827;
+}
+
+#subtitleLabel {
+    -fx-font-size: 12.0px;
+    -fx-text-fill: #6B7280;
+}
+
+/* ===== SECTION LABELS ===== */
+#sectionLabel {
+    -fx-font-size: 13.0px;
+    -fx-font-weight: 700.0;
+    -fx-text-fill: #374151;
+    -fx-padding: 0.0 0.0 0.0 2.0px;
+}
+
+/* ===== SCROLL PANE (body wrapper) ===== */
+#bodyScrollPane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0.0;
+}
+
+#bodyScrollPane > .viewport {
+    -fx-background-color: transparent;
+}
+
+#bodyScrollPane .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8.0px;
+}
+
+#bodyScrollPane .scroll-bar:vertical .track {
+    -fx-background-color: #F3F4F6;
+    -fx-background-radius: 4.0px;
+}
+
+#bodyScrollPane .scroll-bar:vertical .thumb {
+    -fx-background-color: #D1D5DB;
+    -fx-background-radius: 4.0px;
+}
+
+#bodyScrollPane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #9CA3AF;
+}
+
+#bodyScrollPane .scroll-bar:vertical .increment-button,
+#bodyScrollPane .scroll-bar:vertical .decrement-button {
+    -fx-pref-height: 0.0;
+    -fx-pref-width: 0.0;
+    -fx-opacity: 0.0;
+}
+
+/* ===== PATH LABEL (Path field) ===== */
+#pathField {
+    -fx-background-color: #F9FAFB;
+    -fx-background-radius: 10.0px;
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 10.0px;
+    -fx-border-width: 1.5px;
+    -fx-padding: 6.0px 10.0px;
+    -fx-font-size: 13.0px;
+    -fx-text-fill: #374151;
+}
+
+/* ===== RECORDS COUNT LABEL ===== */
+#recordsCountLabel {
+    -fx-background-color: #F0F7FF;
+    -fx-background-radius: 10.0px;
+    -fx-border-color: #BFDBFE;
+    -fx-border-radius: 10.0px;
+    -fx-border-width: 1.5px;
+    -fx-padding: 8.0px 14.0px;
+    -fx-text-fill: #1E40AF;
+    -fx-font-size: 13.0px;
+}
+
+/* ===== BROWSE BUTTON (Generic) ===== */
+.button {
+    -fx-background-color: #4695c4;
+    -fx-background-radius: 10.0px;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13.0px;
+    -fx-font-weight: 700.0;
+    -fx-padding: 8.0px 20.0px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(26.0,86.0,219.0,0.28), 8.0, 0.0, 0.0, 2.0);
+}
+
+.button:hover {
+    -fx-background-color: #10B2DD;
+    -fx-effect: dropshadow(gaussian, rgba(26.0,86.0,219.0,0.42), 12.0, 0.0, 0.0, 4.0);
+}
+
+.button:disabled {
+    -fx-background-color: #D1D5DB;
+    -fx-text-fill: #9CA3AF;
+    -fx-effect: none;
+    -fx-opacity: 0.6;
+}
+
+/* ===== ACTION BUTTONS (Validate XML, Get Data) ===== */
+#actionBtn {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10.0px;
+    -fx-border-color: #D1D5DB;
+    -fx-border-radius: 10.0px;
+    -fx-border-width: 1.5px;
+    -fx-text-fill: #374151;
+    -fx-font-size: 13.0px;
+    -fx-font-weight: 600.0;
+    -fx-padding: 8.0px 18.0px;
+    -fx-cursor: hand;
+}
+
+#actionBtn:hover {
+    -fx-background-color: #F3F4F6;
+    -fx-border-color: #4695c4;
+}
+
+/* ===== REPORT CARD ===== */
+#reportCard {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 16.0px;
+    -fx-effect: dropshadow(gaussian, rgba(0.0,0.0,0.0,0.09), 24.0, 0.0, 0.0, 4.0);
+}
+
+#reportCardHeader {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 16.0px 16.0px 0.0 0.0;
+}
+
+#reportTitleLabel {
+    -fx-font-size: 18.0px;
+    -fx-font-weight: 700.0;
+    -fx-text-fill: #111827;
+}
+
+#reportSubtitleLabel {
+    -fx-font-size: 12.0px;
+    -fx-text-fill: #6B7280;
+}
+
+/* ===== EXPORT BUTTON ===== */
+#exportBtn {
+    -fx-background-color: #4695c4;
+    -fx-background-radius: 9.0px;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13.0px;
+    -fx-font-weight: 700.0;
+    -fx-padding: 8.0px 18.0px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(26.0,86.0,219.0,0.28), 8.0, 0.0, 0.0, 2.0);
+}
+
+#exportBtn:hover {
+    -fx-background-color: #10B2DD;
+    -fx-effect: dropshadow(gaussian, rgba(26.0,86.0,219.0,0.42), 12.0, 0.0, 0.0, 4.0);
+}
+
+/* ===== FORMAT COMBO BOX ===== */
+#reportComboBox {
+    -fx-background-color: #F9FAFB;
+    -fx-background-radius: 9.0px;
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 9.0px;
+    -fx-border-width: 1.5px;
+    -fx-font-size: 13.0px;
+    -fx-cursor: hand;
+}
+
+#reportComboBox:hover {
+    -fx-border-color: #A5B4FC;
+}
+
+#reportComboBox .list-cell {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #374151;
+    -fx-font-size: 13.0px;
+}
+
+#reportComboBox .list-cell:hover {
+    -fx-background-color: #F3F4F6;
+}
+
+/* ===== REFRESH ICON ===== */
+#refreshIcon {
+    -fx-opacity: 0.7;
+}
+
+#refreshIcon:hover {
+    -fx-opacity: 1.0;
+}
+
+/* ===== PIE CHART ===== */
+#reportPieChart {
+    -fx-background-color: transparent;
+    -fx-legend-visible: true;
+}
+
+#reportPieChart .chart-title {
+    -fx-font-size: 0.0;
+}
+
+#reportPieChart .chart-legend {
+    -fx-background-color: transparent;
+    -fx-font-size: 11.0px;
+    -fx-text-fill: #6B7280;
+}
+
+/* ===== CHART SIDE LABEL ===== */
+#chartSideLabel {
+    -fx-font-size: 13.0px;
+    -fx-font-weight: 700.0;
+    -fx-text-fill: #374151;
+    -fx-alignment: CENTER;
+}
+
+/* ===== TABLE SECTION LABEL ===== */
+#tableSectionLabel {
+    -fx-font-size: 13.0px;
+    -fx-font-weight: 700.0;
+    -fx-text-fill: #374151;
+}
+
+/* ===== REPORT TABLE ===== */
+#reportTableView {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12.0px;
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 12.0px;
+    -fx-border-width: 1.5px;
+    -fx-table-cell-border-color: #F3F4F6;
+}
+
+#reportTableView .column-header-background {
+    -fx-background-color: #F8FAFC;
+    -fx-background-radius: 12.0px 12.0px 0.0 0.0;
+}
+
+#reportTableView .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #E5E7EB transparent;
+    -fx-border-width: 0.0 0.0 1.5px 0.0;
+    -fx-padding: 10.0px 12.0px;
+    -fx-size: 38.0px;
+}
+
+#reportTableView .column-header .label {
+    -fx-font-size: 12.0px;
+    -fx-font-weight: 700.0;
+    -fx-text-fill: #6B7280;
+    -fx-alignment: CENTER_LEFT;
+}
+
+#reportTableView .table-row-cell {
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent transparent #F3F4F6 transparent;
+    -fx-border-width: 0.0 0.0 1.0px 0.0;
+    -fx-cell-size: 40.0px;
+}
+
+#reportTableView .table-row-cell:odd {
+    -fx-background-color: #FAFBFC;
+}
+
+#reportTableView .table-row-cell:selected {
+    -fx-background-color: #f6f6f8;
+}
+
+#reportTableView .table-row-cell:hover {
+    -fx-background-color: #F5F7FF;
+}
+
+#reportTableView .table-cell {
+    -fx-font-size: 13.0px;
+    -fx-text-fill: #374151;
+    -fx-padding: 8.0px 12.0px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-border-color: transparent;
+}
+
+#reportTableView .scroll-bar:vertical {
+    -fx-pref-width: 8.0px;
+    -fx-background-color: transparent;
+}
+
+#reportTableView .scroll-bar:vertical .thumb {
+    -fx-background-color: #D1D5DB;
+    -fx-background-radius: 4.0px;
+}
+
+#reportTableView .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #9CA3AF;
+}
+
+#reportTableView .scroll-bar:vertical .track,
+#reportTableView .scroll-bar:vertical .track-background {
+    -fx-background-color: transparent;
+}
+
+#reportTableView .scroll-bar:vertical .increment-button,
+#reportTableView .scroll-bar:vertical .decrement-button {
+    -fx-pref-height: 0.0;
+    -fx-opacity: 0.0;
+}
+
+#reportTableView .scroll-bar:horizontal {
+    -fx-pref-height: 8.0px;
+    -fx-background-color: transparent;
+}
+
+#reportTableView .scroll-bar:horizontal .thumb {
+    -fx-background-color: #D1D5DB;
+    -fx-background-radius: 4.0px;
+}
+
+#reportTableView .scroll-bar:horizontal .track,
+#reportTableView .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+#reportTableView .scroll-bar:horizontal .increment-button,
+#reportTableView .scroll-bar:horizontal .decrement-button {
+    -fx-pref-width: 0.0;
+    -fx-opacity: 0.0;
+}
+
+#reportTableView .placeholder .label {
+    -fx-font-size: 13.0px;
+    -fx-text-fill: #9CA3AF;
+}
+
+/* ===== LOG TAB TEXT AREA ===== */
+.text-area {
+    -fx-background-color: #F8FAFC;
+    -fx-background-radius: 12.0px;
+    -fx-text-fill: #374151;
+    -fx-font-family: 'Consolas', 'Courier New', monospace;
+    -fx-font-size: 14.0px;
+    -fx-border-color: #E5E7EB;
+    -fx-border-width: 0.0;
+}
+
+.text-area .content {
+    -fx-background-color: #F8FAFC;
+    -fx-background-radius: 12.0px;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background-radius: 12.0px;
+}
+
+.text-area .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.text-area .caret {
+    -fx-stroke: #4695c4;
+}
+
+.text-area .selection {
+    -fx-fill: #4695c433;
+}
+
+/* ===== COMBO BOX (General) ===== */
+.combo-box {
+    -fx-background-color: #F9FAFB;
+    -fx-background-radius: 9.0px;
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 9.0px;
+    -fx-border-width: 1.5px;
+    -fx-font-size: 13.0px;
+}
+
+.combo-box:hover {
+    -fx-border-color: #9CA3AF;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #374151;
+    -fx-font-size: 13.0px;
+    -fx-padding: 6.0px 10.0px;
+}
+
+.combo-box .list-cell:hover {
+    -fx-background-color: #F3F4F6;
+}
+
+.combo-box .list-cell:selected {
+    -fx-background-color: #EEF2FF;
+    -fx-text-fill: #4695c4;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8.0px;
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 8.0px;
+    -fx-border-width: 1.5px;
+    -fx-effect: dropshadow(gaussian, rgba(0.0,0.0,0.0,0.12), 16.0, 0.0, 0.0, 4.0);
+}
+
+/* ===== PROGRESS INDICATOR ===== */
+.progress-indicator {
+    -fx-progress-color: #4695c4;
+}
+
+/* ===== CHECKBOXES ===== */
+.check-box {
+    -fx-text-fill: #111827;
+    -fx-font-size: 13.0px;
+    -fx-font-weight: 600.0;
+}
+
+.check-box .box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #D1D5DB;
+    -fx-border-radius: 5.0px;
+    -fx-background-radius: 5.0px;
+    -fx-border-width: 2.0px;
+    -fx-min-width: 18.0px;
+    -fx-min-height: 18.0px;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #4695c4;
+    -fx-border-color: #4695c4;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}

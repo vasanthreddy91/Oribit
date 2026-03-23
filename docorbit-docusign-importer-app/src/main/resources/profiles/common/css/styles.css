@@ -1,0 +1,19 @@
+/* styles.css */
+.button{
+	/* -fx-background-color:   #10B2DD; */
+	-fx-background-color: #4695c4;
+	-fx-text-fill: white;
+	-fx-font-size: 16.0;
+	-fx-font-weight: bold;
+	
+}
+.button:pressed {
+    -fx-background-color: #10B2DD;
+    -fx-font-color:  #ffffff;
+    -fx-font-weight: bold;
+}
+.button.selected {
+    -fx-background-color:  #f6f6f8;
+    -fx-text-fill: #10B2DD;
+    -fx-font-weight: bold; 
+}

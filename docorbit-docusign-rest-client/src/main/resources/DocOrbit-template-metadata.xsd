@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="source">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string" />
+				<xs:element name="version" type="xs:string" />
+				<xs:element name="accountId" type="xs:string" />
+				<xs:element name="templateItems">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="template">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="templateId" type="xs:string" />
+										<xs:element name="uri" type="xs:string" />
+										<xs:element name="name" type="xs:string" />
+										<xs:element name="description" type="xs:string" />
+										<xs:element name="created" type="xs:dateTime" />
+										<xs:element name="lastModified" type="xs:dateTime" />
+										<xs:element name="lastUsed" type="xs:dateTime" />
+										<xs:element name="pageCount" type="xs:unsignedByte" />
+										<xs:element name="folderId" type="xs:string" />
+										<xs:element name="folderName" type="xs:string" />
+										<xs:element name="folderIds">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="folderId" type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="owner">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="userName" type="xs:string" />
+													<xs:element name="userId" type="xs:string" />
+													<xs:element name="email" type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="lastModifiedBy">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="userName" type="xs:string" />
+													<xs:element name="userId" type="xs:string" />
+													<xs:element name="email" type="xs:string" />
+													<xs:element name="uri" type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="documents">
+											<xs:complexType>
+												<xs:sequence minOccurs="0">
+													<xs:element maxOccurs="unbounded"
+														name="document">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="documentId"
+																	type="xs:unsignedInt" />
+																<xs:element name="name" type="xs:string" />
+																<xs:element name="uri" type="xs:string" />
+																<xs:element name="order"
+																	type="xs:unsignedByte" />
+																<xs:element name="pages"
+																	type="xs:unsignedByte" />
+																<xs:element name="display" type="xs:string" />
+																<xs:element name="includeInDownload"
+																	type="xs:boolean" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="recipients">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="recipientCount"
+														type="xs:unsignedByte" />
+													<xs:element name="signers">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element maxOccurs="unbounded"
+																	name="signer">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="name" type="xs:string" />
+																			<xs:element name="email" type="xs:string" />
+																			<xs:element name="recipientId"
+																				type="xs:unsignedInt" />
+																			<xs:element name="routingOrder"
+																				type="xs:unsignedByte" />
+																			<xs:element name="recipientType"
+																				type="xs:string" />
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="emailSubject" type="xs:string" />
+										<xs:element name="emailBlurb" type="xs:string" />
+										<xs:element name="signingLocation" type="xs:string" />
+										<xs:element name="enableWetSign" type="xs:boolean" />
+										<xs:element name="allowMarkup" type="xs:boolean" />
+										<xs:element name="allowReassign" type="xs:boolean" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

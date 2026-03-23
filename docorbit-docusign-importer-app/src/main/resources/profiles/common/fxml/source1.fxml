@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TabPane fx:id="setupTabPane" prefHeight="545.0" prefWidth="846.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.techtiera.docorbit.controller.SourceController">
+	<tabs>
+		<Tab text="Users">
+			<content>
+				<AnchorPane prefHeight="516.0" prefWidth="868.0" style="-fx-background-color: #f6f6f8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+					<children>
+						<Text layoutX="23.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select user XML File Path : " wrappingWidth="170.13671875" AnchorPane.bottomAnchor="465.486328125" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="730.86328125" AnchorPane.topAnchor="31.892578125">
+							<font>
+								<Font size="14.0" />
+							</font>
+						</Text>
+						<Button fx:id="btnUserFile" layoutX="193.0" layoutY="29.0" mnemonicParsing="false" onAction="#browseUserFile" text="Browse" AnchorPane.leftAnchor="193.0">
+							<effect>
+								<DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+							</effect>
+						</Button>
+						<Label fx:id="labelUserLocation" layoutX="256.0" layoutY="28.0" style="-fx-background-color: #f6f6f8; -fx-background-radius: 10;" text="Path : " textFill="#0d3073" wrapText="true">
+							<font>
+								<Font name="Poppins Bold" size="12.0" />
+							</font>
+							<padding>
+								<Insets bottom="5" left="10" right="10" top="5" />
+							</padding>
+						</Label>
+						<Button layoutX="73.0" layoutY="74.0" mnemonicParsing="false" onAction="#validateUserXMLData" prefHeight="25.0" prefWidth="86.0" text="Validate XML">
+							<effect>
+								<DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+							</effect>
+						</Button>
+						<Button layoutX="189.0" layoutY="74.0" mnemonicParsing="false" onAction="#readUserXMLData" prefHeight="25.0" prefWidth="63.0" text="Get Data" AnchorPane.leftAnchor="189.0">
+							<effect>
+								<DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+							</effect>
+						</Button>
+						<TableView fx:id="userRecordTableView" layoutX="15.0" layoutY="159.0" prefHeight="298.0" prefWidth="813.0" style="-fx-border-color: #0d3073; -fx-border-width: 1;" visible="false" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="97.0" AnchorPane.topAnchor="159.0">
+							<effect>
+								<DropShadow blurType="GAUSSIAN" color="#f0f0f0" height="20.0" radius="9.5" spread="0.8" width="20.0" />
+							</effect>
+						</TableView>
+						<Label fx:id="totalUserRecordsCount" layoutX="16.0" layoutY="120.0" prefHeight="30.0" prefWidth="185.0" style="-fx-background-color: #ffffff; -fx-border-color: #e0eefb;" text="Total Records : - " textFill="#0d3073" visible="false" AnchorPane.leftAnchor="16.0">
+							<font>
+								<Font name="Poppins Bold" size="12.0" />
+							</font>
+							<effect>
+								<DropShadow height="10.0" radius="4.5" spread="0.2" width="10.0" />
+							</effect>
+							<padding>
+								<Insets left="5.0" />
+							</padding>
+						</Label>
+                  <Button fx:id="importUserButton" alignment="CENTER" disable="true" graphicTextGap="0.0" layoutX="377.0" layoutY="472.0" mnemonicParsing="false" onAction="#importUserButtonAction" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #0D78BE;" text="Import" textFill="WHITE">
+                     <font>
+                        <Font name="Poppins Bold" size="14.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow height="10.0" radius="4.5" width="10.0" />
+                     </effect>
+                  </Button>
+					</children>
+				</AnchorPane>
+			</content>
+		</Tab>
+		<Tab text="Templates">
+			<content>
+				<AnchorPane prefHeight="516.0" prefWidth="840.0" style="-fx-background-color: #f6f6f8;">
+					<children>
+						<Button layoutX="225.0" layoutY="142.0" mnemonicParsing="false" onAction="#readTemplateXMLData" prefHeight="25.0" prefWidth="63.0" text="Get Data" AnchorPane.leftAnchor="225.0">
+							<effect>
+								<DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+							</effect>
+						</Button>
+						<TableView fx:id="templateRecordTableView" layoutX="16.0" layoutY="221.0" prefHeight="235.0" prefWidth="809.0" style="-fx-border-color: #0d3073; -fx-border-width: 1;" visible="false" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="221.0">
+							<effect>
+								<DropShadow blurType="GAUSSIAN" color="#f0f0f0" height="20.0" radius="9.5" spread="0.8" width="20.0" />
+							</effect>
+						</TableView>
+						<Label fx:id="totalTemplateRecordsCount" layoutX="16.0" layoutY="181.0" prefHeight="30.0" prefWidth="185.0" style="-fx-background-color: #ffffff; -fx-border-color: #e0eefb;" text="Total Records : - " textFill="#0d3073" visible="false" AnchorPane.leftAnchor="16.0">
+							<font>
+								<Font name="Poppins Bold" size="12.0" />
+							</font>
+							<effect>
+								<DropShadow height="10.0" radius="4.5" spread="0.2" width="10.0" />
+							</effect>
+							<padding>
+								<Insets left="5.0" />
+							</padding>
+						</Label>
+						<Text layoutX="30.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Template XML File Path : " wrappingWidth="204.13671875">
+							<font>
+								<Font name="Poppins Bold" size="14.0" />
+							</font>
+						</Text>
+						<Button fx:id="btnTemplateFile" layoutX="229.0" layoutY="63.0" mnemonicParsing="false" onAction="#browseTemplateFile" prefHeight="25.0" prefWidth="55.0" text="Browse">
+							<effect>
+								<DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+							</effect>
+						</Button>
+						<Button layoutX="66.0" layoutY="142.0" mnemonicParsing="false" onAction="#validateTemplateXMLData" prefHeight="25.0" prefWidth="86.0" text="Validate XML">
+							<effect>
+								<DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+							</effect>
+						</Button>
+						<Label fx:id="labelTemplateLocation" layoutX="297.0" layoutY="62.0" style="-fx-background-color: #f6f6f8; -fx-background-radius: 10;" text="Path : " textFill="#0d3073" wrapText="true">
+							<font>
+								<Font name="Poppins Bold" size="12.0" />
+							</font>
+							<padding>
+								<Insets bottom="5" left="10" right="10" top="5" />
+							</padding>
+						</Label>
+                  <Text layoutX="30.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Content Path : " wrappingWidth="136.13671875">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="labelTemplateContentLocation" layoutX="236.0" layoutY="25.0" style="-fx-background-color: #f6f6f8; -fx-background-radius: 10;" text="Path : " textFill="#0d3073" wrapText="true">
+                     <font>
+                        <Font name="Poppins Bold" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5" left="10" right="10" top="5" />
+                     </padding>
+                  </Label>
+                  <Button fx:id="btnTemplateContentFile" layoutX="174.0" layoutY="26.0" mnemonicParsing="false" onAction="#browseTemplateContentFile" styleClass="root" text="Browse">
+                     <effect>
+                        <DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+                     </effect>
+                  </Button>
+                  <Button fx:id="importTemplateButton" alignment="CENTER" disable="true" graphicTextGap="0.0" layoutX="376.0" layoutY="479.0" mnemonicParsing="false" onAction="#importButtonAction" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #0D78BE;" text="Import" textFill="WHITE">
+                     <font>
+                        <Font name="Poppins Bold" size="14.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow height="10.0" radius="4.5" width="10.0" />
+                     </effect>
+                  </Button>
+                  <Text layoutX="30.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Template Report Path : " wrappingWidth="204.13671875">
+                     <font>
+                        <Font name="Poppins Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="templateReportButton" layoutX="229.0" layoutY="98.0" mnemonicParsing="false" onAction="#browseTemplateReportPath" prefHeight="25.0" prefWidth="55.0" text="Browse">
+                     <effect>
+                        <DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+                     </effect>
+                  </Button>
+                  <Label fx:id="labelTemplateReportLocation" layoutX="297.0" layoutY="97.0" style="-fx-background-color: #f6f6f8; -fx-background-radius: 10;" text="Path : " textFill="#0d3073" wrapText="true">
+                     <font>
+                        <Font name="Poppins Bold" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5" left="10" right="10" top="5" />
+                     </padding>
+                  </Label>
+					</children>
+				</AnchorPane>
+			</content>
+		</Tab>
+		<Tab text="Envelops">
+			<content>
+				<AnchorPane prefHeight="516.0" prefWidth="840.0" style="-fx-background-color: #f6f6f8;">
+					<children>
+						<Text layoutX="31.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Content Path : " wrappingWidth="136.13671875" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="756.86328125" AnchorPane.topAnchor="29.892578125">
+							<font>
+								<Font size="14.0" />
+							</font>
+						</Text>
+						<Button fx:id="btnEnvelopContentFile" layoutX="167.0" layoutY="29.0" mnemonicParsing="false" onAction="#browseEnvelopContentFile" styleClass="root" text="Browse" AnchorPane.leftAnchor="167.0">
+							<effect>
+								<DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+							</effect>
+						</Button>
+						<Label fx:id="labelEnvelopContentLocation" layoutX="229.0" layoutY="28.0" style="-fx-background-color: #f6f6f8; -fx-background-radius: 10;" text="Path : " textFill="#0d3073" wrapText="true">
+							<font>
+								<Font name="Poppins Bold" size="12.0" />
+							</font>
+							<padding>
+								<Insets bottom="5" left="10" right="10" top="5" />
+							</padding>
+						</Label>
+						<Button layoutX="224.0" layoutY="140.0" mnemonicParsing="false" onAction="#readEnvelopeXMLData" prefHeight="25.0" prefWidth="63.0" text="Get Data" AnchorPane.leftAnchor="224.0">
+							<effect>
+								<DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+							</effect>
+						</Button>
+						<TableView fx:id="envelopeRecordTableView" layoutX="14.0" layoutY="210.0" prefHeight="255.0" prefWidth="817.0" style="-fx-border-color: #0d3073; -fx-border-width: 1;" visible="false" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="93.0" AnchorPane.topAnchor="210.0">
+							<effect>
+								<DropShadow blurType="GAUSSIAN" color="#f0f0f0" height="20.0" radius="9.5" spread="0.8" width="20.0" />
+							</effect>
+						</TableView>
+						<Label fx:id="totalEnvelopeRecordsCount" layoutX="19.0" layoutY="176.0" prefHeight="30.0" prefWidth="182.0" style="-fx-background-color: #ffffff; -fx-border-color: #e0eefb;" text="Total Records : - " textFill="#0d3073" visible="false" AnchorPane.leftAnchor="19.0">
+							<font>
+								<Font name="Poppins Bold" size="12.0" />
+							</font>
+							<effect>
+								<DropShadow height="10.0" radius="4.5" spread="0.2" width="10.0" />
+							</effect>
+							<padding>
+								<Insets left="5.0" />
+							</padding>
+						</Label>
+						<Text layoutX="31.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select envelope XML File Path : " wrappingWidth="204.13671875">
+							<font>
+								<Font name="Poppins Bold" size="14.0" />
+							</font>
+						</Text>
+						<Button fx:id="btnEnvelopeFile" layoutX="228.0" layoutY="66.0" mnemonicParsing="false" onAction="#browseEnvelopeFile" prefHeight="25.0" prefWidth="55.0" text="Browse">
+							<effect>
+								<DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+							</effect>
+						</Button>
+						<Button layoutX="67.0" layoutY="140.0" mnemonicParsing="false" onAction="#validateEnvelopeXMLData" prefHeight="25.0" prefWidth="86.0" text="Validate XML">
+							<effect>
+								<DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+							</effect>
+						</Button>
+						<Label fx:id="labelEnvelopeLocation" layoutX="289.0" layoutY="65.0" style="-fx-background-color: #f6f6f8; -fx-background-radius: 10;" text="Path : " textFill="#0d3073" wrapText="true">
+							<font>
+								<Font name="Poppins Bold" size="12.0" />
+							</font>
+							<padding>
+								<Insets bottom="5" left="10" right="10" top="5" />
+							</padding>
+						</Label>
+                  <Button fx:id="importEnvelopeButton" alignment="CENTER" disable="true" graphicTextGap="0.0" layoutX="378.0" layoutY="480.0" mnemonicParsing="false" onAction="#importEnvelopButtonAction" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #0D78BE;" text="Import" textFill="WHITE">
+                     <font>
+                        <Font name="Poppins Bold" size="14.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow height="10.0" radius="4.5" width="10.0" />
+                     </effect>
+                  </Button>
+                  <Text layoutX="31.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Envelope Report Path : " wrappingWidth="204.13671875">
+                     <font>
+                        <Font name="Poppins Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="envelopeReportButton" layoutX="228.0" layoutY="105.0" mnemonicParsing="false" onAction="#browseEnvelopeReportPath" prefHeight="25.0" prefWidth="55.0" text="Browse">
+                     <effect>
+                        <DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+                     </effect>
+                  </Button>
+                  <Label fx:id="labelEnvelopeReportLocation" layoutX="289.0" layoutY="105.0" style="-fx-background-color: #f6f6f8; -fx-background-radius: 10;" text="Path : " textFill="#0d3073" wrapText="true">
+                     <font>
+                        <Font name="Poppins Bold" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5" left="10" right="10" top="5" />
+                     </padding>
+                  </Label>
+					</children>
+				</AnchorPane>
+			</content>
+		</Tab>
+		<Tab text="Groups">
+			<content>
+				<AnchorPane prefHeight="516.0" prefWidth="840.0" style="-fx-background-color: #f6f6f8;">
+					<children>
+						<Button layoutX="201.0" layoutY="79.0" mnemonicParsing="false" onAction="#readGroupXMLData" prefHeight="25.0" prefWidth="63.0" text="Get Data" AnchorPane.leftAnchor="201.0">
+							<effect>
+								<DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+							</effect>
+						</Button>
+						<TableView fx:id="groupRecordTableView" layoutX="14.0" layoutY="163.0" prefHeight="287.0" prefWidth="818.0" style="-fx-border-color: #0d3073; -fx-border-width: 1;" visible="false" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="163.0">
+							<effect>
+								<DropShadow blurType="GAUSSIAN" color="#f0f0f0" height="20.0" radius="9.5" spread="0.8" width="20.0" />
+							</effect>
+						</TableView>
+						<Label fx:id="totalGroupRecordsCount" layoutX="17.0" layoutY="126.0" prefHeight="30.0" prefWidth="184.0" style="-fx-background-color: #ffffff; -fx-border-color: #e0eefb;" text="Total Records : - " textFill="#0d3073" visible="false" AnchorPane.leftAnchor="17.0">
+							<font>
+								<Font name="Poppins Bold" size="12.0" />
+							</font>
+							<effect>
+								<DropShadow height="10.0" radius="4.5" spread="0.2" width="10.0" />
+							</effect>
+							<padding>
+								<Insets left="5.0" />
+							</padding>
+						</Label>
+						<Text layoutX="26.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select group XML File Path : " wrappingWidth="179.13671875">
+							<font>
+								<Font name="Poppins Bold" size="14.0" />
+							</font>
+						</Text>
+						<Button fx:id="btnGroupFile" layoutX="205.0" layoutY="37.0" mnemonicParsing="false" onAction="#browseGroupFile" prefHeight="25.0" prefWidth="55.0" text="Browse">
+							<effect>
+								<DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+							</effect>
+						</Button>
+						<Label fx:id="labelGroupLocation" layoutX="271.0" layoutY="36.0" style="-fx-background-color: #f6f6f8; -fx-background-radius: 10;" text="Path : " textFill="#0d3073" wrapText="true">
+							<font>
+								<Font name="Poppins Bold" size="12.0" />
+							</font>
+							<padding>
+								<Insets bottom="5" left="10" right="10" top="5" />
+							</padding>
+						</Label>
+						<Button layoutX="85.0" layoutY="79.0" mnemonicParsing="false" onAction="#validateGroupXMLData" prefHeight="25.0" prefWidth="86.0" text="Validate XML">
+							<effect>
+								<DropShadow color="#00000080" height="10.0" radius="4.5" width="10.0" />
+							</effect>
+						</Button>
+                  <Button fx:id="groupImportButton" alignment="CENTER" disable="true" graphicTextGap="0.0" layoutX="378.0" layoutY="472.0" mnemonicParsing="false" onAction="#importGroupButtonAction" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #0D78BE;" text="Import" textFill="WHITE">
+                     <font>
+                        <Font name="Poppins Bold" size="14.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow height="10.0" radius="4.5" width="10.0" />
+                     </effect>
+                  </Button>
+					</children>
+				</AnchorPane>
+			</content>
+		</Tab>
+      <Tab fx:id="Logtab" text="Log">
+         <content>
+            <AnchorPane fx:id="logAnchorPane" prefHeight="511.0" prefWidth="667.0">
+               <children>
+                  <StackPane fx:id="stackPaneForTextArea" layoutX="45.0" layoutY="45.0" prefHeight="429.0" prefWidth="780.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="45.0" />
+                  <TextArea fx:id="logTextArea" layoutX="47.0" layoutY="47.0" prefHeight="427.0" prefWidth="777.0" style="-fx-background-radius: 10;" wrapText="true" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="45.0">
+                     <effect>
+                        <InnerShadow height="10.0" radius="4.5" width="10.0" />
+                     </effect>
+                  </TextArea>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+	</tabs>
+</TabPane>

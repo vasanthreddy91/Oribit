@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<!-- Relaxed boolean type -->
+	<xs:simpleType name="BooleanText">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="true" />
+			<xs:enumeration value="false" />
+			<xs:enumeration value="True" />
+			<xs:enumeration value="False" />
+			<xs:enumeration value="1" />
+			<xs:enumeration value="0" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OptionalUnsignedInt">
+		<xs:union>
+			<xs:simpleType>
+				<xs:restriction base="xs:unsignedInt" />
+			</xs:simpleType>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:length value="0" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
+	</xs:simpleType>
+
+
+	<!-- Root -->
+	<xs:element name="source">
+		<xs:complexType>
+			<xs:sequence>
+
+				<xs:element name="name" type="xs:string" />
+				<xs:element name="version" type="xs:string" />
+				<xs:element name="accountId" type="xs:string" />
+
+				<xs:element name="users">
+					<xs:complexType>
+						<xs:sequence>
+
+							<xs:element name="user" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+
+										<xs:element name="userName" type="xs:string" />
+										<xs:element name="userId" type="xs:string" />
+										<xs:element name="userType" type="xs:string" />
+
+										<xs:element name="isAdmin" type="BooleanText" />
+										<xs:element name="userStatus" type="xs:string" />
+										<xs:element name="uri" type="xs:string" />
+										<xs:element name="email" type="xs:string" />
+
+										<xs:element name="createdDateTime"
+											type="xs:dateTime" />
+										<xs:element name="userAddedToAccountDateTime"
+											type="xs:dateTime" />
+
+										<xs:element name="firstName" type="xs:string"
+											minOccurs="0" />
+										<xs:element name="middleName" type="xs:string"
+											minOccurs="0" />
+										<xs:element name="lastName" type="xs:string" />
+
+										<xs:element name="jobTitle" type="xs:string"
+											minOccurs="0" />
+										<xs:element name="company" type="xs:string"
+											minOccurs="0" />
+										<xs:element name="permissionProfileId"
+											type="OptionalUnsignedInt" minOccurs="0" />
+
+										<xs:element name="permissionProfileName"
+											type="xs:string" minOccurs="0" />
+
+										<xs:element name="isManagedByScim"
+											type="BooleanText" />
+										<xs:element name="isMembershipManagedByScim"
+											type="BooleanText" />
+
+										<xs:element name="userSettings">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="canManageAccount"
+														type="BooleanText" />
+													<xs:element name="canSendEnvelope"
+														type="BooleanText" />
+													<xs:element name="apiAccountWideAccess"
+														type="BooleanText" />
+													<xs:element name="canSignEnvelope"
+														type="BooleanText" />
+													<xs:element name="adminOnly" type="BooleanText" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+
+										<xs:element name="groups">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="group" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="groupId"
+																	type="xs:unsignedInt" />
+																<xs:element name="groupName" type="xs:string" />
+																<xs:element name="lastModifiedOn"
+																	type="xs:dateTime" />
+																<xs:element name="isManagedByScim"
+																	type="BooleanText" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
